@@ -29,7 +29,7 @@ class Account:
         for statements in self.deposits:
             print(statements)
     def withdraws_statement(self):
-        for staments in self.withdraws:
+        for staments in self.withdrawals:
             print(staments)
     def current_balance(self):
         balance = self.balance
