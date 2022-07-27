@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing_extensions import Self
+
 class Account:
     def __init__(self,name,account_number):
         self.balance=0
@@ -58,8 +58,8 @@ class Account:
         if amount>sum/3:
             return f"Dear {self.name} you can borrow money up to {sum/3}"
         if self.balance!=0:
-            return f"Dear {self.name} you still  have balance of {self.balance}" 
-        if self.loan_balance !=0:
+            return f"Dear {self.name} you still  have balance of {self.balance} you can't borrow" 
+        if self.loan_balance >0:
             return f"Dear {self.name} you still have the balance of {self.loan_balance}, hence repay to borrow" 
         else:
             interest= amount*0.03
@@ -82,7 +82,7 @@ class Account:
             return f"insufficient amount in your account"
         if isinstance(instance_account,Account):
             self.balance-=amount
-            instance_account.balance += amount
+            instance_account.deposit(amount)
             return f"you have transfered {amount} to {instance_account} account with the name {instance_account.name} and your new balance is {self.balance}"
             
    
@@ -99,7 +99,6 @@ class Account:
  
     
 
-# Add a new method transfer which accepts two attributes (amount and instance of another account). If the amount is less than the current instances balance, the method transfers the requested amount from the current account to the passed account. The transfer is accomplished by reducing the current account balance and depositing the requested amount to the passed account.
 
 
 
